@@ -25,13 +25,6 @@ html {
     font-weight: 700;
   }
 
-  /* Estilo de la imagen del logo de UAM dentro del navbar */
-  #logo {
-    vertical-align: middle;
-    object-fit: cover;
-    padding: 6px;
-  }
-
   .hero-section {
     position: relative;
     background-size: cover;
@@ -127,6 +120,13 @@ html {
   h2{
     color: #0b545b !important;
   }
+
+  #about .container,
+  #galeria .container {
+  padding-left: 36px;
+  padding-right: 36px;
+}
+
 
 /* Cambio de color del componente de carta, para mayor resalte */
   #about .card-body {
