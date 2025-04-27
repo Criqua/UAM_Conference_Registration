@@ -1,0 +1,179 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* Paleta de colores UAM + #009CA8*/
+:root {
+    --bs-primary: #212331;
+    --bs-dark:    #333333;
+    --bs-light:   #F7F7F7;
+    --bs-body-color: #333333;
+  }
+  
+  /* Animación de fade-in al cargar la página */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-out forwards;
+  }
+
+  .hero-content h1 {
+    font-size: 48px;
+    font-weight: 700;
+  }
+
+  /* Estilo de la imagen del logo de UAM dentro del navbar */
+  #logo {
+    vertical-align: middle;
+    object-fit: cover;
+    padding: 6px;
+  }
+
+  .hero-section {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 93vh;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 36px;
+  }
+  
+  .logo-item {
+    position: absolute;
+    top: 50%;
+    left: 70%;
+    width: 175px;
+    height: 175px;
+    object-fit: contain;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    animation: fadeInOut 9s infinite ease-in-out;
+  }
+  
+  #pic1 { animation-delay: 0s; }
+  
+  #pic2 { animation-delay: 3s; }
+  
+  #pic3 { animation-delay: 6s; }
+  
+  @keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    
+    10%, 30% { opacity: 1; }
+    
+    40%, 100% { opacity: 0; }
+  }
+  
+  /* Hero buttons */
+  .btn-hero-primary {
+    background: linear-gradient(90deg, var(--bs-primary) 0%, #009CA8 100%);
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: transform 0.2s, opacity 0.2s;
+  }
+  .btn-hero-primary:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+  }
+  .btn-hero-secondary {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.4);
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    border-radius: 0.5rem;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-hero-secondary:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateY(-2px);
+  }
+  
+  /* Utility for button focus */
+  .btn:focus {
+    box-shadow: 0 0 0 0.25rem rgba(0, 166, 156, 0.5);
+    outline: none;
+  }
+  
+  /* Override Bootstrap background utility */
+  .bg-primary {
+    background-color: var(--bs-primary) !important;
+  }
+  .btn:focus {
+    box-shadow: 0 0 0 0.25rem rgba(0, 166, 156, 0.5) !important;
+    outline: none;
+  }
+  
+  h2{
+    color: #0b545b !important;
+  }
+
+/* Cambio de color del componente de carta, para mayor resalte */
+  #about .card-body {
+    background-color: #009CA8;
+    color: #fff;
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+
+  #about .card-body .card-title,
+  #about .card-body .card-text {
+    color: #fff;
+  }
+
+#about .row.mb-4 .card-img-top {
+  width: 100%;
+  height: 325px;
+  object-fit: cover;
+  object-position: center;
+}
+
+.carousel-item img {
+  filter: brightness(60%);
+  object-fit: cover;
+  height: 500px !important;
+}
+
+/* En móviles reduce un poco la altura */
+@media (max-width: 767.98px) {
+  #about .row.mb-4 .card-img-top {
+    height: 200px;
+  }
+}
+
+  @media (max-width: 575.98px) {
+    /* Centrado de contenido de sección hero para pantallas xs */
+    .hero-section {
+      height: auto;
+      padding: 4rem 0;
+    }
+
+    .hero-content {
+      text-align: center;
+    }
+
+    .hero-content .d-flex {
+      justify-content: center !important;
+      flex-direction: column;
+    }
+  }
