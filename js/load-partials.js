@@ -11,6 +11,10 @@ async function loadHTML(containerId, url) {
     }
 
     document.getElementById(containerId).innerHTML = await resp.text();
+
+    if (containerId === "navbar") {
+      activateCurrentNav();
+    }
 }
 
 /**
@@ -18,20 +22,27 @@ async function loadHTML(containerId, url) {
  * compara su href con la URL actual y marca active al que coincida (se resalta el menú activo).
  */
 function activateCurrentNav() {
-  const currentPath = window.location.pathname.split("/").pop();
+  let currentPath = window.location.pathname.split("/").pop();
+
+  /**
+   * Caso excepcional: cuando la URL es sólo el dominio 
+   * (e.g. al ejecutar Live Server sin especificar un archivo .html de donde cargar) se considera que el archivo activo es index.html.
+   */
+  if (currentPath === "") {
+    currentPath = "index.html";
+  }
 
   document.querySelectorAll("#navbar .nav-link").forEach(link => {
-      // Se extrae sólo el nombre del archivo del href
-      const linkPath = link.getAttribute("href");
+    // Se extrae sólo el nombre del archivo del href
+    const linkPath = link.getAttribute("href");
 
-      if (linkPath === currentPath) {
-        link.classList.add("active");
-      }
+    if (linkPath === currentPath) {
+      link.classList.add("active");
+    }
   });
 }
 
 window.addEventListener("DOMContentLoaded", async () => {
     await loadHTML("navbar", "partial-views/navbar.html");
-    activateCurrentNav();
     await loadHTML("footer", "partial-views/footer.html");
 });

@@ -84,7 +84,6 @@ html {
   font-size: 0.9rem;
 }
 
-/* Botón de registro – estilo sencillo */
 .btn-register {
   display: inline-block;
   padding: 0.5rem 1.25rem;
@@ -114,7 +113,7 @@ html {
   background: linear-gradient(to right, rgba(0, 156, 168, 0) 0%, rgba(0, 156, 168, 0.5) 50%, rgba(0, 156, 168, 0) 100%);
 }
 
-/* Pantallas >1000px: diseño "side-by-side" e imagen tomando todo el contenedor de altura */
+/* Para pantallas >1000px: se acude a un diseño "side-by-side" e imagen tomando todo el contenedor de altura */
 @media (min-width: 1000px) {
   .event-item {
     display: flex;

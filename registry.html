@@ -1,141 +1,140 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UAM | Registro</title>
-    <meta name="description" content="Vista de Registro de Conferencias Tecnológicas UAM 2025">
-    <meta name="keywords" content="UAM, Conferencias, GitHub, Docker, Servidores Linux, Registro, Eventos">
-    <meta name="author" content="Cristian Gago">
-    <link rel="icon" type="image/x-icon" href="/img/uam_favicon.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <script src="https://kit.fontawesome.com/2af02d949f.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <link rel="stylesheet" href="css/registry-styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UAM | Registro</title>
+  <meta name="description" content="Vista de Registro de Conferencias Tecnológicas UAM 2025">
+  <meta name="keywords" content="UAM, Conferencias, GitHub, Docker, Servidores Linux, Registro, Eventos">
+  <meta name="author" content="Cristian Gago">
+  <link rel="icon" type="image/x-icon" href="/img/uam_favicon.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+  <script src="https://kit.fontawesome.com/2af02d949f.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="css/registry-styles.css">
 </head>
 
-<body>
-    <div id="navbar"></div>
+<body class="bg-light">
+  <div id="navbar"></div>
 
-    <header class="header-section" style="background-image: url('img/uam_auditorium.webp');">
-        <div class="header-overlay"></div>
-        <div class="container">
-          <h1 class="header-content text-white display-4 fade-in" style="animation-delay: 0.5s;">
-            Registro
-          </h1>
+  <header class="header-section" style="background-image: url('img/s_tech_registry_bg.webp'); background-position: center 65%;">
+    <div class="header-overlay"></div>
+    <div class="container">
+      <h1 class="header-content text-white display-4 fade-in" style="animation-delay: 0.5s;">
+        Registro
+      </h1>
+    </div>
+  </header>
+
+  <main class="container my-5">
+    <div class="header-card fade-in" style="animation-delay: 0.5s;">
+      <h2>Formulario de Registro</h2>
+    </div>
+
+    <div class="form-container fade-in" style="animation-delay: 0.5s;">
+      <form id="registrationForm">
+        <div class="input-group">
+          <label for="name">Nombre Completo</label>
+          <input type="text" id="name" name="name">
+          <div class="error-msg" id="errorName">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <span></span>
+          </div>
         </div>
-    </header>
 
-    <main class="container my-5">
-      <div class="header-card fade-in" style="animation-delay: 0.5s;">
-        <h2>Formulario de Registro</h2>
-      </div>
-    
-      <div class="form-container fade-in" style="animation-delay: 0.5s;">
-          <form id="registrationForm">
-            <div class="input-group">
-                <label for="name">Nombre Completo</label>
-                <input type="text" id="name" name="name">
-                <div class="error-msg" id="errorName">
-                    <i class="fa-solid fa-circle-exclamation"></i>
-                    <span></span>
-                </div> 
+        <div class="input-group">
+          <label for="email">Correo Institucional</label>
+          <input type="text" id="email" name="email">
+          <div class="error-msg" id="errorEmail">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <span></span>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="major">Carrera</label>
+          <select id="major" name="major" style="width: 100%;">
+            <option value="" disabled selected hidden>Selecciona tu carrera</option>
+            <optgroup label="Ciencias Administrativas y Económicas">
+              <option value="administracion-empresas">Administración de Empresas</option>
+              <option value="contabilidad-finanzas">Contabilidad y Finanzas</option>
+              <option value="economia-empresarial">Economía Empresarial</option>
+              <option value="negocios-internacionales">Negocios Internacionales</option>
+            </optgroup>
+            <optgroup label="Ciencias Jurídicas, Humanidades y Relaciones Internacionales">
+              <option value="derecho">Derecho</option>
+              <option value="diplomacia-relaciones-internacionales">Diplomacia y Relaciones Internacionales</option>
+            </optgroup>
+            <optgroup label="Ciencias Médicas">
+              <option value="medicina">Medicina</option>
+              <option value="psicologia">Psicología</option>
+              <option value="nutricion">Nutrición</option>
+            </optgroup>
+            <optgroup label="Ingeniería y Arquitectura">
+              <option value="arquitectura">Arquitectura</option>
+              <option value="ingenieria-civil">Ingeniería Civil</option>
+              <option value="ingenieria-industrial">Ingeniería Industrial</option>
+              <option value="ingenieria-sistemas">Ingeniería en Sistemas de Información</option>
+            </optgroup>
+            <optgroup label="Marketing, Diseño y Ciencias de la Comunicación">
+              <option value="marketing-publicidad">Marketing y Publicidad</option>
+              <option value="diseno-comunicacion-visual">Diseño y Comunicación Visual</option>
+              <option value="comunicacion-relaciones-publicas">Comunicación y Relaciones Públicas</option>
+            </optgroup>
+            <optgroup label="Odontología">
+              <option value="odontologia">Odontología</option>
+            </optgroup>
+          </select>
+          <div class="error-msg" id="errorMajor">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <span></span>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label>Conferencias</label>
+          <div style="padding-left: 10px">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="evt1" name="events" value="github" />
+              <label class="form-check-label text-muted" for="evt1">Uso de GitHub en proyectos colaborativos</label>
             </div>
-
-            <div class="input-group">
-                <label for="email">Correo Institucional</label>
-                <input type="email" id="email" name="email">
-                <div class="error-msg" id="errorEmail">
-                    <i class="fa-solid fa-circle-exclamation"></i>
-                    <span></span>
-                </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="evt2" name="events" value="docker" />
+              <label class="form-check-label text-muted" for="evt2">Introducción a Docker para entornos de
+                desarrollo</label>
             </div>
-
-            <div class="input-group">
-                <label for="major">Carrera</label>
-                <select id="major" name="major" class="selectpicker" data-size="5" data-width="100%" data-live-search="true">
-                  <option value="" disabled selected hidden>Selecciona tu carrera</option>
-                  <optgroup label="Ciencias Administrativas y Económicas">
-                    <option value="administracion-empresas">Administración de Empresas</option>
-                    <option value="contabilidad-finanzas">Contabilidad y Finanzas</option>
-                    <option value="economia-empresarial">Economía Empresarial</option>
-                    <option value="negocios-internacionales">Negocios Internacionales</option>
-                  </optgroup>
-                  <optgroup label="Ciencias Jurídicas, Humanidades y Relaciones Internacionales">
-                    <option value="derecho">Derecho</option>
-                    <option value="diplomacia-relaciones-internacionales">Diplomacia y Relaciones Internacionales</option>
-                  </optgroup>
-                  <optgroup label="Ciencias Médicas">
-                    <option value="medicina">Medicina</option>
-                    <option value="psicologia">Psicología</option>
-                    <option value="nutricion">Nutrición</option>
-                  </optgroup>
-                  <optgroup label="Ingeniería y Arquitectura">
-                    <option value="arquitectura">Arquitectura</option>
-                    <option value="ingenieria-civil">Ingeniería Civil</option>
-                    <option value="ingenieria-industrial">Ingeniería Industrial</option>
-                    <option value="ingenieria-sistemas">Ingeniería en Sistemas de Información</option>
-                  </optgroup>
-                  <optgroup label="Marketing, Diseño y Ciencias de la Comunicación">
-                    <option value="marketing-publicidad">Marketing y Publicidad</option>
-                    <option value="diseno-comunicacion-visual">Diseño y Comunicación Visual</option>
-                    <option value="comunicacion-relaciones-publicas">Comunicación y Relaciones Públicas</option>
-                  </optgroup>
-                  <optgroup label="Odontología">
-                    <option value="odontologia">Odontología</option>
-                  </optgroup>
-                </select>
-                <div class="error-msg" id="errorMajor">
-                  <i class="fa-solid fa-circle-exclamation"></i>
-                  <span></span>
-                </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="evt3" name="events" value="linux" />
+              <label class="form-check-label text-muted" for="evt3">Configuración básica de servidores Linux</label>
             </div>
+          </div>
+          <div class="error-msg" id="errorEvents">
+            <i class="fa-solid fa-circle-exclamation"></i>
+            <span></span>
+          </div>
+        </div>
+        <button type="submit" id="submitButton" class="btn-register text-decoration-none">Registar Información</button>
+      </form>
+    </div>
+  </main>
 
-            <div class="input-group">
-                <label>Conferencias</label>
-                <div style="padding-left: 10px">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="evt1" name="events" value="github"/>
-                    <label class="form-check-label text-muted" for="evt1">Uso de GitHub en proyectos colaborativos</label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="evt2" name="events" value="docker"/>
-                    <label class="form-check-label text-muted" for="evt2">Introducción a Docker para entornos de desarrollo</label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="evt3" name="events" value="linux"/>
-                    <label class="form-check-label text-muted" for="evt3">Configuración básica de servidores Linux</label>
-                  </div>
-              </div>
-                <div class="error-msg" id="errorEvents">
-                  <i class="fa-solid fa-circle-exclamation"></i>
-                  <span></span>
-                </div>
-            </div>
+  <div id="footer"></div>
+  <script src="js/load-partials.js"></script>
+  <script src="js/validators.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
 
-            <button type="submit" id="submitButton" class="btn-register text-decoration-none">Registar Información</button>
-        </form>
-      </div>
-    </main>
-
-    <div id="footer"></div>
-    <script src="js/load-partials.js"></script>
-    <script src="js/validators.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <!-- 4) Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  
-    <!-- 5) Bootstrap-Select JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0/dist/js/bootstrap-select.min.js"></script>
-
-      <script>
-        // 6) Inicialización
-        $(document).ready(function(){
-          $('.selectpicker').selectpicker();
-        });
-      </script>
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script>
+      const singleSelect = new Choices('#major', {
+        searchEnabled: false, // No permite buscar, solo seleccionar
+        itemSelectText: '',    // Elimina el texto de "Presione para seleccionar"
+      });
+    </script>
 </body>
 </html>

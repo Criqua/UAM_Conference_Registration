@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
             showError("errorEmail", "El correo no puede estar vacío.");
         } else if (!emailRegex.test(email)) {
             isValid = false;
-            showError("Formato inválido. Usa tu correo institucional de dominio \"@uamv.edu.ni.\"");
+            showError("errorEmail", "Formato inválido. Usa tu correo institucional de dominio \"@uamv.edu.ni.\"");
         }
 
         // 3) Selección de una carrera

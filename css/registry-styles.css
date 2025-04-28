@@ -99,22 +99,40 @@ html {
 }
 
 .input-group input:not([type="checkbox"]),
-.input-group select {
+.input-group select,
+.input-group .choices__inner {
   width: 100%;
   padding: 14px 16px;
   border: 1px solid #ccc;
-  border-radius: 8px !important; 
+  border-radius: 8px !important;
   font-size: 16px;
   background-color: #f9f9f9;
   transition: all 0.3s ease;
+  padding-top: 8px !important;
+  padding-bottom: 8px !important; /* "Workaround" para centrado del texto en el selector */
+  height: 52px;
 }
 
 .input-group input:focus:not([type="checkbox"]),
-.input-group select:focus {
+.input-group select:focus,
+.input-group .choices__inner.is-focused {
   border-color: #00A69C;
   background-color: #fff;
   box-shadow: 0 0 8px rgba(0, 166, 156, 0.3);
   outline: none;
+}
+
+.choices__list--dropdown,
+.choices__item--choice,
+.choices__placeholder {
+  font-family: inherit !important;
+  color: #444;
+  padding-left: 10px;
+}
+
+/* Para que el contenedor Choices no meta margen extraño */
+.choices {
+  margin: 0;
 }
 
 .btn-register {
@@ -130,7 +148,7 @@ html {
   transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
   align-self: center;
 }
-  
+
 .btn-register:hover,
 .btn-register:focus {
   background-color: #009CA8;
@@ -161,7 +179,24 @@ html {
 .bg-primary {
   background-color: var(--bs-primary) !important;
 }
+
 .btn:focus {
   box-shadow: 0 0 0 0.25rem rgba(0,166,156,0.5) !important;
   outline: none;
+}
+
+@media (max-width: 768px) {
+  .header-section {
+    height: auto;
+    padding: 4rem 0;
+  }
+
+  .header-section .container {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .header-content {
+    text-align: center;
+  }
 }
